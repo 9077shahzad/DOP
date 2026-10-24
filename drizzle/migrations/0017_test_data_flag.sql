@@ -1,0 +1,12 @@
+ALTER TABLE public.leads ADD COLUMN IF NOT EXISTS is_test boolean NOT NULL DEFAULT false;
+ALTER TABLE public.quotes ADD COLUMN IF NOT EXISTS is_test boolean NOT NULL DEFAULT false;
+ALTER TABLE public.jobs_execution ADD COLUMN IF NOT EXISTS is_test boolean NOT NULL DEFAULT false;
+ALTER TABLE public.enquiries ADD COLUMN IF NOT EXISTS is_test boolean NOT NULL DEFAULT false;
+COMMENT ON COLUMN public.quotes.is_test IS 'Technical marker: row created by the automated test suite. Hidden from operational lists/KPIs, kept for audit.';
+COMMENT ON COLUMN public.leads.is_test IS 'Technical marker: row created by the automated test suite.';
+COMMENT ON COLUMN public.jobs_execution.is_test IS 'Technical marker: row created by the automated test suite.';
+COMMENT ON COLUMN public.enquiries.is_test IS 'Technical marker: row created by the automated test suite.';
+GRANT SELECT (is_test) ON public.leads TO authenticated;
+GRANT SELECT (is_test) ON public.quotes TO authenticated;
+GRANT SELECT (is_test) ON public.jobs_execution TO authenticated;
+GRANT SELECT (is_test) ON public.enquiries TO authenticated;

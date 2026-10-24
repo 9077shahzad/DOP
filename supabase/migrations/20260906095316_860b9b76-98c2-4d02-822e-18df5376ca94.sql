@@ -1,0 +1,1 @@
+GRANT EXECUTE ON FUNCTION public.set_user_role(uuid, portal_role, text) TO authenticated;

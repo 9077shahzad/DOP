@@ -1,0 +1,1 @@
+REVOKE ALL ON FUNCTION public.profiles_guard_protected_columns() FROM PUBLIC, anon, authenticated;

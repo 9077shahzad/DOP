@@ -1,0 +1,2 @@
+ALTER TABLE public.legal_documents DROP CONSTRAINT legal_documents_language_check;
+ALTER TABLE public.legal_documents ADD CONSTRAINT legal_documents_language_check CHECK (language = ANY (ARRAY['de','fr','it','en','ar']));

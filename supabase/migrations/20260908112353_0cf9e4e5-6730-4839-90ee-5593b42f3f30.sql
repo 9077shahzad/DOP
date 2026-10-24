@@ -1,0 +1,1 @@
+REVOKE ALL ON FUNCTION public.partners_link_owner() FROM PUBLIC, anon, authenticated;

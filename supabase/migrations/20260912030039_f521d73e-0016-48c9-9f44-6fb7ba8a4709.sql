@@ -1,0 +1,1 @@
+DROP FUNCTION public.get_verified_quote_document(text, text);

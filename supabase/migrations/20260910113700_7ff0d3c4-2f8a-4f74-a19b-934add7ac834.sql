@@ -1,0 +1,2 @@
+REVOKE EXECUTE ON FUNCTION public.minimum_gate_state(timestamp with time zone, numeric, integer) FROM anon, authenticated, public;
+GRANT EXECUTE ON FUNCTION public.minimum_gate_state(timestamp with time zone, numeric, integer) TO service_role;

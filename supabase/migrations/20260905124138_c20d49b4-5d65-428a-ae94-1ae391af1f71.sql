@@ -1,0 +1,1 @@
+REVOKE EXECUTE ON FUNCTION public.jobs_execution_no_double_booking() FROM PUBLIC, anon, authenticated;

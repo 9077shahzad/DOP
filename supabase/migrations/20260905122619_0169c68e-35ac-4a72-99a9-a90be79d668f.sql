@@ -1,0 +1,1 @@
+REVOKE ALL ON FUNCTION public.leads_flag_duplicate_trg() FROM PUBLIC, anon, authenticated;

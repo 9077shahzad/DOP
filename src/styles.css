@@ -1,0 +1,712 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+/*
+ * PS Umzug AG — corporate design system.
+ * Single source of truth: every colour, radius and font token lives here.
+ * Official brand: orange #F8973A for headings and highlights, navy #19457C
+ * (primary brand colour) for solid buttons and titles, white canvas with a light blue-grey band surface.
+ */
+
+@theme inline {
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+  --radius-2xl: 22px;
+  --radius-3xl: 28px;
+  --radius-4xl: 34px;
+
+
+  /* Brand */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-subtle: var(--primary-subtle);
+  --color-primary-light: var(--primary-light);
+  --color-brand-orange: var(--brand-orange);
+  --color-brand-orange-hover: var(--brand-orange-hover);
+  --color-brand-orange-subtle: var(--brand-orange-subtle);
+  --color-brand-navy: var(--brand-navy);
+
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-line-soft: var(--line-soft);
+  --color-soft: var(--soft);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+
+
+  /* shadcn surface tokens */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  /* Semantic status set — one meaning, one colour, everywhere */
+  --color-success: var(--success);
+  --color-success-subtle: var(--success-subtle);
+  --color-warning: var(--warning);
+  --color-warning-subtle: var(--warning-subtle);
+  --color-danger: var(--danger);
+  --color-danger-subtle: var(--danger-subtle);
+  --color-info: var(--info);
+  --color-info-subtle: var(--info-subtle);
+  --color-neutral: var(--neutral);
+  --color-neutral-subtle: var(--neutral-subtle);
+  --color-success-ink: var(--success-ink);
+  --color-warning-ink: var(--warning-ink);
+  --color-danger-ink: var(--danger-ink);
+  --color-info-ink: var(--info-ink);
+  --color-neutral-ink: var(--neutral-ink);
+
+  /* Elevation — exactly three levels, no ad-hoc shadows */
+  --shadow-flat: none;
+  --shadow-raised: 0 1px 2px color-mix(in srgb, var(--ink) 8%, transparent),
+    0 2px 8px color-mix(in srgb, var(--ink) 6%, transparent);
+  --shadow-overlay: 0 8px 24px color-mix(in srgb, var(--ink) 14%, transparent),
+    0 2px 6px color-mix(in srgb, var(--ink) 10%, transparent);
+
+  /* Motion */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-emphasis: cubic-bezier(0.3, 0, 0, 1);
+
+  --font-display: "Inter", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+:root {
+  --radius: 3px;
+
+  --primary: #19457c;
+  --brand-orange: #f8973a;
+  --brand-orange-hover: #e07f20;
+  --brand-orange-subtle: #fef3e6;
+  --brand-navy: #19457c;
+  --primary-foreground: #ffffff;
+  --primary-hover: #123561;
+  --primary-subtle: #e7eef7;
+  --primary-light: #7d9cc2;
+
+  --ink: #16233a;
+  --ink-2: #44536b;
+  --canvas: #ffffff;
+  --surface: #f2f5f8;
+  --surface-2: #e6ecf3;
+  --line: #e2e8f0;
+  --line-soft: #eff3f7;
+  --soft: #6b7280;
+
+  --success: #1e9e6a;
+  --success-subtle: #e6f6ef;
+  --warning: #b45309;
+  --warning-subtle: #fdf1e3;
+  --danger: #d93a3a;
+  --danger-subtle: #fdecec;
+  --info: #19457c;
+  --info-subtle: #e7eef7;
+  --neutral: #6b7183;
+  --neutral-subtle: #eef0f7;
+
+  /* AA-safe text colours for status chips on their subtle backgrounds */
+  --success-ink: #0f6b48;
+  --warning-ink: #8a4208;
+  --danger-ink: #a52020;
+  --info-ink: #143562;
+  --neutral-ink: #4a5060;
+
+  /* Cardboard, used only by the planner volume visualisation */
+  --box-top: #d8c3a0;
+  --box-left: #b99f79;
+  --box-right: #c9b08c;
+
+  /* Motion durations */
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
+  --dur-slow: 320ms;
+
+  --background: var(--canvas);
+  --foreground: var(--ink);
+  --card: var(--surface);
+  --card-foreground: var(--ink);
+  --popover: var(--surface);
+  --popover-foreground: var(--ink);
+  --secondary: var(--ink);
+  --secondary-foreground: #ffffff;
+  --muted: #eef0f7;
+  --muted-foreground: var(--soft);
+  --accent: var(--primary-subtle);
+  --accent-foreground: var(--ink);
+  --destructive: #d93a3a;
+  --destructive-foreground: #ffffff;
+  --border: var(--line);
+  --input: var(--line);
+  --ring: var(--primary);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+  }
+
+  h3,
+  h4 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: -0.005em;
+  }
+
+
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: var(--primary);
+    color: #ffffff;
+  }
+}
+
+/* Uppercase mono micro-label */
+@utility label-mono {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  font-size: 0.6875rem;
+  line-height: 1.4;
+}
+
+@utility data-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Thin indigo rule used where sections need separation */
+@utility brand-rule {
+  background-image: linear-gradient(
+    90deg,
+    var(--primary) 0%,
+    color-mix(in srgb, var(--primary) 35%, transparent) 55%,
+    transparent 100%
+  );
+}
+
+@utility highlight-primary {
+  color: var(--primary);
+  background-image: linear-gradient(
+    180deg,
+    transparent 62%,
+    color-mix(in srgb, var(--primary) 16%, transparent) 62%
+  );
+  padding-inline: 0.08em;
+  box-decoration-break: clone;
+}
+
+/* Horizontally scrollable table wrapper with a visible edge affordance */
+@utility scroll-x {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+
+/* ---------------------------------------------------------------- type scale
+ * Playfair for display only; Inter for everything functional. Use these
+ * utilities instead of ad-hoc text-* sizes so every screen shares one scale. */
+@utility type-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.875rem, 6.5vw, 5.75rem);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+}
+@utility type-h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 3.6vw, 3.25rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+@utility type-h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.625rem, 2.6vw, 2.375rem);
+  line-height: 1.14;
+  letter-spacing: -0.015em;
+}
+@utility type-h3 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1.1875rem;
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+}
+@utility type-h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1.0625rem;
+  line-height: 1.45;
+}
+/* Standfirst under a heading — the calm, readable public voice. */
+@utility type-lead {
+  font-size: clamp(1.0625rem, 1.4vw, 1.3125rem);
+  line-height: 1.6;
+  letter-spacing: -0.005em;
+}
+@utility type-body {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+@utility type-small {
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+@utility type-caption {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--soft);
+}
+
+/* Public page rhythm: one vertical spacing scale, generous by default. */
+@utility section-y {
+  padding-block: 4.5rem;
+  @media (min-width: 768px) {
+    padding-block: 7rem;
+  }
+}
+@utility shell-x {
+  margin-inline: auto;
+  max-width: 76rem;
+  padding-inline: 1.25rem;
+  @media (min-width: 768px) {
+    padding-inline: 2rem;
+  }
+}
+
+
+/* --------------------------------------------------------------- elevation */
+@utility elev-flat {
+  box-shadow: var(--shadow-flat);
+}
+@utility elev-raised {
+  box-shadow: var(--shadow-raised);
+}
+@utility elev-overlay {
+  box-shadow: var(--shadow-overlay);
+}
+/* Single approved hover lift (KPI cards, coverage tiles). */
+@utility lift {
+  transition:
+    box-shadow var(--dur-base) var(--ease-standard),
+    transform var(--dur-base) var(--ease-standard),
+    border-color var(--dur-fast) var(--ease-standard);
+  &:hover {
+    box-shadow: var(--shadow-raised);
+    transform: translateY(-2px);
+  }
+}
+
+/* ------------------------------------------------------------------ motion */
+@utility motion-fast {
+  transition-duration: var(--dur-fast);
+  transition-timing-function: var(--ease-standard);
+}
+@utility motion-base {
+  transition-duration: var(--dur-base);
+  transition-timing-function: var(--ease-standard);
+}
+@utility motion-slow {
+  transition-duration: var(--dur-slow);
+  transition-timing-function: var(--ease-emphasis);
+}
+
+
+/* ------------------------------------------------- planner volume stack (3D)
+ * The single depth effect in the product. CSS only; degrades to a flat grid
+ * of squares whenever transforms are unavailable or motion is reduced. */
+.iso-scene {
+  position: relative;
+  width: 132px;
+  transform-style: preserve-3d;
+  transform: rotateX(58deg) rotateZ(calc(46deg + var(--iso-angle, 0deg)));
+}
+
+.iso-scene.iso-drift {
+  animation: iso-drift 22s var(--ease-standard) infinite;
+}
+
+@keyframes iso-drift {
+  0%,
+  100% {
+    transform: rotateX(58deg) rotateZ(calc(40deg + var(--iso-angle, 0deg)));
+  }
+  50% {
+    transform: rotateX(58deg) rotateZ(calc(52deg + var(--iso-angle, 0deg)));
+  }
+}
+
+.iso-stack {
+  display: grid;
+  grid-template-columns: repeat(4, 26px);
+  gap: 4px;
+  transform-style: preserve-3d;
+}
+
+.iso-box {
+  position: relative;
+  display: block;
+  width: 26px;
+  height: 26px;
+  transform-style: preserve-3d;
+  transform: translate3d(0, calc(var(--layer, 0) * -13px), calc(var(--layer, 0) * 22px));
+}
+
+.iso-face {
+  position: absolute;
+  inset: 0;
+  display: block;
+  border: 1px solid color-mix(in srgb, var(--ink) 22%, transparent);
+  background: var(--box-top);
+}
+
+.iso-top {
+  transform: translateZ(20px);
+}
+
+.iso-left {
+  height: 20px;
+  background: var(--box-left);
+  transform-origin: top;
+  transform: rotateX(-90deg) translateY(6px);
+}
+
+.iso-right {
+  width: 20px;
+  background: var(--box-right);
+  transform-origin: left;
+  transform: rotateY(90deg) translateX(-6px) translateZ(26px);
+}
+
+/* Van capacity outline the stack is measured against. */
+.iso-floor {
+  position: absolute;
+  inset: auto 0 -18px;
+  height: 0;
+  transform-style: preserve-3d;
+}
+
+.iso-van {
+  position: absolute;
+  left: -18px;
+  bottom: -24px;
+  display: block;
+  width: 168px;
+  height: 96px;
+  border: 2px dashed color-mix(in srgb, var(--primary) 55%, transparent);
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--primary) 7%, transparent);
+}
+
+.iso-van-2 {
+  transform: translate3d(26px, -26px, 0);
+}
+
+/* Flat presentation: no lift, no drift, still a legible pile of boxes. */
+@media (prefers-reduced-motion: reduce) {
+  .iso-scene,
+  .iso-box,
+  .iso-face {
+    transform: none !important;
+    animation: none !important;
+  }
+  .iso-left,
+  .iso-right {
+    display: none;
+  }
+  .iso-van {
+    position: static;
+    width: auto;
+    height: 8px;
+    margin-top: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Depth is decoration: remove it entirely rather than merely speed it up. */
+  [data-depth],
+  [data-depth] * {
+    transform: none !important;
+    perspective: none !important;
+    transform-style: flat !important;
+    animation: none !important;
+  }
+
+  [data-parallax] {
+    transform: none !important;
+    will-change: auto !important;
+  }
+}
+
+
+/* --------------------------------------------------------------- contrast
+ * Muted ink and brand indigo are tuned for light surfaces. On the dark ink
+ * surfaces (top bar, footer, live panel) the same tokens fall below 4.5:1 at
+ * micro-label sizes, so they are re-pointed rather than hand-patched per
+ * screen. Verified with axe-core at 11px. */
+.bg-ink .text-soft,
+.bg-ink-2 .text-soft,
+.bg-ink .text-line {
+  color: #a7adc0;
+}
+
+/* doubled class so the override outranks the Tailwind utility it replaces */
+.bg-ink .text-primary.text-primary,
+.bg-ink-2 .text-primary.text-primary,
+.bg-ink.text-primary.text-primary {
+  color: var(--color-primary-light);
+}
+
+/* --------------------------------------------------- signature depth (3D)
+ * CSS transforms and SVG only — no WebGL, no 3D library. Every rule below is
+ * decoration over markup that already works flat: links stay links, data stays
+ * text. Reduced motion and unsupported transforms fall back to the flat
+ * layout via the shared reset at the end of this file. */
+
+/* Isometric furniture silhouette inside the planner stack. */
+.iso-item {
+  position: relative;
+  display: block;
+  width: 26px;
+  height: 26px;
+  transform-style: preserve-3d;
+  background: color-mix(in srgb, var(--primary) 26%, transparent);
+  border: 1px solid color-mix(in srgb, var(--primary) 60%, transparent);
+}
+.iso-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-top: 1px solid color-mix(in srgb, var(--primary) 70%, transparent);
+  transform: translateZ(14px);
+  background: color-mix(in srgb, var(--primary) 16%, transparent);
+}
+
+/* Isometric building for the property explorer. */
+.bld-scene {
+  transform: perspective(1400px) rotateX(54deg) rotateZ(-45deg);
+  transform-style: preserve-3d;
+}
+.bld-zone {
+  position: relative;
+  display: block;
+  transform-style: preserve-3d;
+  transform: translateZ(calc(var(--floor, 0) * 54px));
+  transition:
+    transform var(--dur-base) var(--ease-standard),
+    filter var(--dur-base) var(--ease-standard);
+}
+.bld-zone:hover,
+.bld-zone:focus-visible,
+.bld-zone[data-active="true"] {
+  transform: translateZ(calc(var(--floor, 0) * 54px + 20px));
+  filter: saturate(1.2);
+}
+
+/* Slab labels face the viewer: the scene rotation is undone on the text. */
+.bld-label {
+  transform: rotateZ(45deg) rotateX(-54deg);
+  transform-style: preserve-3d;
+}
+
+/* Coverage tiles: layered elevation, never glass. */
+.depth-tile {
+  transition:
+    transform var(--dur-base) var(--ease-standard),
+    box-shadow var(--dur-base) var(--ease-standard);
+}
+.depth-tile:hover,
+.depth-tile:focus-within {
+  transform: translateY(-3px);
+}
+
+/* KPI cards and hero layers. */
+.lift-card {
+  transition:
+    transform var(--dur-base) var(--ease-standard),
+    box-shadow var(--dur-base) var(--ease-standard);
+}
+.lift-card:hover,
+.lift-card:focus-within {
+  transform: translateY(-2px);
+}
+.parallax-layer {
+  transform: translate3d(0, calc(var(--parallax, 0) * 1px), 0);
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bld-scene,
+  .bld-zone,
+  .bld-label,
+  .iso-item,
+  .parallax-layer {
+    transform: none !important;
+  }
+  .depth-tile:hover,
+  .lift-card:hover {
+    transform: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .bld-scene,
+  .bld-label {
+    transform: none;
+  }
+}
+
+/* ---------------------------------------------------------------- print
+ * Browsers rasterise the screen theme for "Save as PDF", which turned the
+ * page into a solid colour block. Print gets its own flat, ink-on-paper
+ * treatment: white paper, dark text, no chrome, no decorative layers. */
+@media print {
+  :root {
+    --canvas: #ffffff;
+    --surface: #ffffff;
+    --surface-2: #ffffff;
+    --ink: #16233a;
+    --ink-2: #333333;
+    --line: #cccccc;
+    --line-soft: #dddddd;
+  }
+
+  html,
+  body,
+  #root {
+    background: #ffffff !important;
+    color: #16233a !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: economy;
+    print-color-adjust: economy;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+
+  /* Any full-bleed tinted panel becomes plain paper. */
+  section,
+  header,
+  main,
+  aside,
+  article,
+  div {
+    background-image: none !important;
+  }
+
+  .bg-ink,
+  .bg-primary,
+  .bg-surface,
+  .bg-surface-2,
+  .bg-canvas,
+  .bg-primary-subtle {
+    background-color: #ffffff !important;
+    color: #16233a !important;
+  }
+
+  /* Site chrome and interactive-only furniture are not part of a document. */
+  nav,
+  header nav,
+  .print\:hidden,
+  [data-print="hide"],
+  [role="dialog"],
+  [aria-live],
+  button,
+  .brand-rule {
+    display: none !important;
+  }
+
+  /* Keep tables and cards readable across page breaks. */
+  table {
+    page-break-inside: auto;
+    border-collapse: collapse;
+  }
+  tr,
+  img,
+  figure {
+    page-break-inside: avoid;
+  }
+  thead {
+    display: table-header-group;
+  }
+  h1,
+  h2,
+  h3 {
+    page-break-after: avoid;
+    color: #16233a !important;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.75em;
+    color: #555555;
+  }
+
+  @page {
+    margin: 14mm;
+  }
+}

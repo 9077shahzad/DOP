@@ -1,0 +1,1 @@
+REVOKE EXECUTE ON FUNCTION public.submit_partner_application(text) FROM anon;
